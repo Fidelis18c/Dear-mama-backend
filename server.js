@@ -3,6 +3,7 @@ import cors from 'cors';
 import { pool } from './config/database.js';  
 import dotenv from 'dotenv';
 import contactRoutes from './routes/contactRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/contact', contactRoutes);
+app.use(`/api/payment`, paymentRoutes);
 
 (async () => {
   try {
