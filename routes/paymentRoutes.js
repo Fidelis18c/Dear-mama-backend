@@ -5,7 +5,7 @@ import {
   getPaymentStatus,
 } from "../controllers/paymentController.js";
 
-const router =express.Router();
+const router = express.Router();
 
 router.post("/initiate", initiatePayment);
 router.post("/webhook", paymentWebhook); // sandbox simulation

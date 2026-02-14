@@ -14,13 +14,13 @@ const port = process.env.PORT || 3000;
 // Database connection
 
 // cors connection
-app.use(cors());
+
 
 
 app.use(express.json());
-
+app.use(cors());
 app.use('/api/contact', contactRoutes);
-app.use(`/api/payment`, paymentRoutes);
+app.use('/api/payment', paymentRoutes);
 
 (async () => {
   try {
@@ -35,3 +35,5 @@ app.use(`/api/payment`, paymentRoutes);
     process.exit(1);
   }
 })();
+
+
