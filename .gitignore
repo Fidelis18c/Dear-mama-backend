@@ -1,0 +1,27 @@
+# --- SENSITIVE DATA (CRITICAL) ---
+
+.env
+.env.local
+.env.production
+
+# --- DEPENDENCIES (Too large to upload) ---
+node_modules/
+jspm_packages/
+
+# --- BUILD OUTPUTS ---
+dist/
+build/
+.next/
+out/
+
+# --- LOGS ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
