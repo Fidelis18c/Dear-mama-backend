@@ -1,8 +1,6 @@
 import express from 'express';
-import cors from 'cors';
 import { pool } from './config/database.js';  
 import dotenv from 'dotenv';
-
 import contactRoutes from './routes/contactRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 
@@ -12,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;  
 
-
+const cors = require('cors');
 // Database connection
 
 // cors connection
@@ -45,7 +43,7 @@ app.options("*", cors());
 
 
 // IMPORTANT: respond to preflight
-app.options("*", cors());
+
 
 
 app.use('api/contact', contactRoutes);
