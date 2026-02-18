@@ -18,7 +18,17 @@ const port = process.env.PORT || 3000;
 
 
 app.use(express.json());
-app.use(cors());
+
+
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",             // Your local laptop
+    "https://dear-mama-frontend.vercel.app" // Your live frontend (once deployed)
+  ],
+  credentials: true
+}));
+
 app.use('/api/contact', contactRoutes);
 app.use('/api/payment', paymentRoutes);
 
