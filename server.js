@@ -27,13 +27,15 @@ app.use('/api/payment', paymentRoutes);
     const result = await pool.query("SELECT 1 AS ok");
     console.log("✅ PostgreSQL Connected. Test value =", result.rows[0].ok);
 
-    app.listen(process.env.PORT||3000, () => {
-      console.log(`Server listening on port ${process.env.PORT||3000}`);
+    app.listen(port,'0.0.0.0', () => {
+      console.log(`Server listening on port ${port}`);
     });
   } catch (err) {
     console.error("❌ PostgreSQL Connection Failed:", err.message);
     process.exit(1);
   }
 })();
+
+export default app;
 
 
