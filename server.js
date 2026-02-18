@@ -23,14 +23,26 @@ app.use(express.json());
 
 
 
+const allowed = [
+  "http://localhost:5173",
+  "https://dear-mama-delta.vercel.app",
+];
+
 app.use(cors({
-  origin: [
-    "https://dear-mama-delta.vercel.app",
-    "http://localhost:5173"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE","OPTIONS"],
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true); // Postman/server-to-server
+    if (allowed.includes(origin)) return cb(null, true);
+
+    // allow any Vercel preview for this project:
+    if (origin.endsWith(".vercel.app")) return cb(null, true);
+
+    return cb(new Error("Not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
+app.options("*", cors());
+
 
 // IMPORTANT: respond to preflight
 app.options("*", cors());
