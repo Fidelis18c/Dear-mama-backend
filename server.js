@@ -28,7 +28,7 @@ app.use(cors({
     "https://dear-mama-delta.vercel.app",
     "http://localhost:5173"
   ],
-  methods: ["GET", "POST", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE","OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
