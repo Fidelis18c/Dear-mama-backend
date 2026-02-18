@@ -36,8 +36,8 @@ app.use(cors({
 app.options("*", cors());
 
 
-app.use('/contact', contactRoutes);
-app.use('/payment', paymentRoutes);
+app.use('api/contact', contactRoutes);
+app.use('api/payment', paymentRoutes);
 
 (async () => {
   try {
