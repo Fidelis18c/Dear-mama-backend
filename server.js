@@ -22,8 +22,7 @@ app.use(express.json());
 
 
 const allowed = [
-  "http://localhost:5173",
-  "https://dear-mama-delta.vercel.app",
+  "*",
 ];
 
 app.use(cors({
